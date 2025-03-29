@@ -15,8 +15,8 @@ public class SetAnimalAnimatorInt : MonoBehaviour
         try
         {
             InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-            NetworkManager.InvokeClientMethod("StartDistractionRPC", invokationManager);
-            NetworkManager.InvokeClientMethod("StopDistractionRPC", invokationManager);
+            //NetworkManager.InvokeClientMethod("StartDistractionRPC", invokationManager);
+            //NetworkManager.InvokeClientMethod("StopDistractionRPC", invokationManager);
 
         }
         catch
@@ -41,7 +41,7 @@ public class SetAnimalAnimatorInt : MonoBehaviour
             myAnimalBehaviour.ActivateCollider();
             canFill = true;
             isAnimalDistracting = true;
-            NetworkManager.InvokeServerMethod("StartDistractionRPC", this.gameObject.name);
+            //NetworkManager.InvokeServerMethod("StartDistractionRPC", this.gameObject.name);
         }
 
 
@@ -57,7 +57,7 @@ public class SetAnimalAnimatorInt : MonoBehaviour
         Debug.Log("Stop distraction");
         isAnimalDistracting = false;
         canFill = false;
-        NetworkManager.InvokeServerMethod("StopDistractionRPC", this.gameObject.name);
+        //NetworkManager.InvokeServerMethod("StopDistractionRPC", this.gameObject.name);
     }
     public void StopDistractionRPC()
     {

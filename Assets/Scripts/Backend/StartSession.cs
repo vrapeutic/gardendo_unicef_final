@@ -7,6 +7,6 @@ public class StartSession : MonoBehaviour
 
     public void SessionStart()
     {
-        FindObjectOfType<BackendSession>().StartSession();
+        //FindObjectOfType<BackendSession>().StartSession();
     }
 }

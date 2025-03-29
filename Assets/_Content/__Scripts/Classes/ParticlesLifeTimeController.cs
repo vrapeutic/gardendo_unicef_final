@@ -16,14 +16,14 @@ public class ParticlesLifeTimeController : MonoBehaviour
     private void Start()
     {
         InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        NetworkManager.InvokeClientMethod("ParticlesLifeTimeRPC", invokationManager);
+        //NetworkManager.InvokeClientMethod("ParticlesLifeTimeRPC", invokationManager);
         particleComponent = this.GetComponent<ParticleSystem>().main;
         StartCoroutine(UpdateLifeTime());
     }
 
     private void ParticlesLifeTime()
     {
-        if (Statistics.android) { NetworkManager.InvokeServerMethod("ParticlesLifeTimeRPC", this.gameObject.name); }
+        //if (Statistics.android) { NetworkManager.InvokeServerMethod("ParticlesLifeTimeRPC", this.gameObject.name); }
     }
 
     public void ParticlesLifeTimeRPC()

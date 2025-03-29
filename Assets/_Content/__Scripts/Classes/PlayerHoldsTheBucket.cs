@@ -62,7 +62,7 @@ public class PlayerHoldsTheBucket : MonoBehaviour
     public void OnConditionNotChecked()
     {
         GrabTheHandleRPC();
-        if (Statistics.android) NetworkManager.InvokeServerMethod("GrabTheHandleRPC", this.gameObject.name);
+        //if (Statistics.android) NetworkManager.InvokeServerMethod("GrabTheHandleRPC", this.gameObject.name);
     }
 
 

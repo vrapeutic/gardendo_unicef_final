@@ -15,7 +15,7 @@ public class CallPlayerToWateraFlower : MonoBehaviour
     private void Start()
     {
         InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        NetworkManager.InvokeClientMethod("LetsWaterTheFlowerRPC", invokationManager);
+        //NetworkManager.InvokeClientMethod("LetsWaterTheFlowerRPC", invokationManager);
         Debug.Log("Call player to water a flower is started");
     }
 

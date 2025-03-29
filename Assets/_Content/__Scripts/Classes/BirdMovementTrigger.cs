@@ -12,7 +12,7 @@ public class BirdMovementTrigger : MonoBehaviour
     private void Start()
     {
         InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        NetworkManager.InvokeClientMethod("FlyingBirdAnimRPC", invokationManager);
+        //NetworkManager.InvokeClientMethod("FlyingBirdAnimRPC", invokationManager);
         stats = Statistics.instane;
     }
 

@@ -40,7 +40,7 @@ public class CSVWriter_Old : MonoBehaviour
     void Start()
     {
         InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        NetworkManager.InvokeClientMethod("SendStatisticsRPC", invokationManager);
+        //NetworkManager.InvokeClientMethod("SendStatisticsRPC", invokationManager);
         attempStartTime = System.DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss tt");
         fileName = Application.dataPath + "/statistics.csv";
         stats = Statistics.instane;
@@ -137,8 +137,8 @@ public class CSVWriter_Old : MonoBehaviour
         isStatsSent = true;
         if (Statistics.android)
         {
-            NetworkManager.InvokeServerMethod("SendStatisticsRPC", this.gameObject.name, typicalTime, timeTaken, level, flowerSustained, wellSustained,
-                implusivityScore, score, omissionScore, DES);
+            //NetworkManager.InvokeServerMethod("SendStatisticsRPC", this.gameObject.name, typicalTime, timeTaken, level, flowerSustained, wellSustained,
+                //implusivityScore, score, omissionScore, DES);
         }
     }
 

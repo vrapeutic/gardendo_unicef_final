@@ -21,8 +21,8 @@ public class ControlBucketCover : MonoBehaviour
     private void Start()
     {
         InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        NetworkManager.InvokeClientMethod("OpenBucketCoverRPC", invokationManager);
-        NetworkManager.InvokeClientMethod("CloseBucketCoverRPC", invokationManager);
+        //NetworkManager.InvokeClientMethod("OpenBucketCoverRPC", invokationManager);
+        //NetworkManager.InvokeClientMethod("CloseBucketCoverRPC", invokationManager);
         isCoverOpened = false;
         shallNPCTalk = true;
     }

@@ -35,9 +35,9 @@ public class ServerRequest : MonoBehaviour
 
         quit = false;
         InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        NetworkManager.InvokeClientMethod("GetSerialRpc", invokationManager);
-        NetworkManager.InvokeClientMethod("GetRpc", invokationManager);
-        NetworkManager.InvokeClientMethod("OnExit", invokationManager);
+        //NetworkManager.InvokeClientMethod("GetSerialRpc", invokationManager);
+        //NetworkManager.InvokeClientMethod("GetRpc", invokationManager);
+        //NetworkManager.InvokeClientMethod("OnExit", invokationManager);
         // GetSerialRpc(headset);
 #if UNITY_ANDROID
         GetHeadsetSerial();
@@ -51,7 +51,7 @@ public class ServerRequest : MonoBehaviour
 
         StartCoroutine(Get(moduleID, headset));
 
-        NetworkManager.InvokeServerMethod("GetSerialRpc", this.gameObject.name, headset);
+        //NetworkManager.InvokeServerMethod("GetSerialRpc", this.gameObject.name, headset);
 #endif
         Invoke("LoadMainMenu", 3); //here you load next scene after 3 seconds 
         Debug.Log(headset + "headset");
@@ -85,7 +85,7 @@ public class ServerRequest : MonoBehaviour
         headset = Android_ID;
         Debug.Log(headset);
 #if UNITY_ANDROID
-        NetworkManager.InvokeServerMethod("GetSerialRpc", this.gameObject.name, headset);
+        //NetworkManager.InvokeServerMethod("GetSerialRpc", this.gameObject.name, headset);
 #endif
         /*
         */
@@ -105,7 +105,7 @@ public class ServerRequest : MonoBehaviour
         getRoomIDInstance = jsonAPIS.ReturnGetRoomID();
         Session.StartSession(getRoomIDInstance);
 #if UNITY_ANDROID
-        NetworkManager.InvokeServerMethod("GetRpc", this.gameObject.name, Session.GetData().id, Session.GetData().room_id);//or Use getRoomIDInstance.id,getRoomIDInstance.room_id
+        //NetworkManager.InvokeServerMethod("GetRpc", this.gameObject.name, Session.GetData().id, Session.GetData().room_id);//or Use getRoomIDInstance.id,getRoomIDInstance.room_id
 #endif
     }
     public void GetRpc(int getId, string getRoom)
@@ -179,7 +179,7 @@ public class ServerRequest : MonoBehaviour
     //}
     public void ExitRpc()
     {
-        NetworkManager.InvokeServerMethod("OnExit", this.gameObject.name);
+        //NetworkManager.InvokeServerMethod("OnExit", this.gameObject.name);
     }
     public void OnExit()
     {

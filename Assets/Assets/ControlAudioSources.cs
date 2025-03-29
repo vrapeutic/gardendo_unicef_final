@@ -8,7 +8,7 @@ public class ControlAudioSources : MonoBehaviour
     private void Start()
     {
         InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        NetworkManager.InvokeClientMethod("PuaseCurrentAudioClipRPC", invokationManager);
+        //NetworkManager.InvokeClientMethod("PuaseCurrentAudioClipRPC", invokationManager);
     }
 
     public void PuaseCurrentAudioClip()

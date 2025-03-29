@@ -35,7 +35,7 @@ public class EndSession : MonoBehaviour
         stats = Statistics.instane;
         canEnterEndCanvasIEnum = true;
         InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        NetworkManager.InvokeClientMethod("GameOverRPC", invokationManager);
+        //NetworkManager.InvokeClientMethod("GameOverRPC", invokationManager);
     }
 
 

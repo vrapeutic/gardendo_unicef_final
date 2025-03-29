@@ -21,7 +21,7 @@ public class StatisticsManager : MonoBehaviour
 
     Statistics stats;
 
-    BackendSession currentSession;
+    //BackendSession currentSession;
     DataCollection dataCollection;
 
     public CSVWriter_Old csvWriter;
@@ -235,7 +235,7 @@ public class StatisticsManager : MonoBehaviour
                 dataCollection.flower_heights = TovaDataGet.ReturnTovaData().GetTargetDataListHights();
                 //  dataCollection.targetDataList = TovaDataGet.ReturnTovaData().GetTargetDataListPositions();
 
-                currentSession.SendStatsData();
+                //currentSession.SendStatsData();
                 Debug.Log(" TFD: " + TFD + " Time Taken: " + timeTaken + " Typical Time: " + typicalTime + " TAS: " + TAS + " Response time: " + responseTime + " AAS: " + AAS + " Task with limited interruption: " + stats.tasksWithLimitiedInterruptions);
 
                 //call post json 
