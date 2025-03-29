@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
 
 public class ControlBucketCover : MonoBehaviour
 {
@@ -20,9 +19,6 @@ public class ControlBucketCover : MonoBehaviour
 
     private void Start()
     {
-        InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        //NetworkManager.InvokeClientMethod("OpenBucketCoverRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("CloseBucketCoverRPC", invokationManager);
         isCoverOpened = false;
         shallNPCTalk = true;
     }
@@ -38,12 +34,10 @@ public class ControlBucketCover : MonoBehaviour
     public void OpenBucketCover()
     {
         OpenBucketCoverRPC();
-       // if (Statistics.android) NetworkManager.InvokeServerMethod("OpenBucketCoverRPC", this.gameObject.name);
     }
 
     public void OpenBucketCoverRPC()
     {
-        //SetAnimatorInt.instance.AnimatorSetIntger(6);
         bucketCover.SetTrigger("OpenTheCover");
         bucketButton.SetTrigger("OpenTheButton");
         isCoverOpened = true;
@@ -54,7 +48,6 @@ public class ControlBucketCover : MonoBehaviour
     public void CloseBucketCover()
     {
         CloseBucketCoverRPC();
-        //if (Statistics.android) NetworkManager.InvokeServerMethod("CloseBucketCoverRPC", this.gameObject.name);
     }
 
     public void CloseBucketCoverRPC()

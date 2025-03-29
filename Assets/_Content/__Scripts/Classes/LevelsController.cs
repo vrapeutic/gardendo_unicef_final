@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
 
 public class LevelsController : MonoBehaviour
 {
@@ -24,11 +23,10 @@ public class LevelsController : MonoBehaviour
     public static bool isWaitingForInteraction = false;
     public static bool isBlockingInteraction = false;
     public static bool isReadyForWatering = false;
+    public static bool isGameOver = false;
     Statistics stats;
     void Start()
     {
-        //InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        //NetworkManager.InvokeClientMethod("EnableLevel_3DistractorRPC", invokationManager);
         stats = Statistics.instane;
         if (stats.isVisualOnly) {
             foreach (AudioSource audioSource in secondLevelDistractorsAudioSources) {
@@ -63,7 +61,7 @@ public class LevelsController : MonoBehaviour
 
     private void Update()
     {
-        if (isReadyForWatering) //only start distractors when npc is done with welcoming/or filling bucket to start distractors
+        if (isReadyForWatering && !isGameOver) //only start distractors when npc is done with welcoming/or filling bucket to start distractors
         {
             timer += Time.deltaTime;
 
@@ -192,7 +190,6 @@ public class LevelsController : MonoBehaviour
     private void Enablelevel9Distractors()
     {
         int randomDistractorIndex = Random.Range(1, 4);
-        //int randomDistractorIndex = 2;
 
         switch (randomDistractorIndex)
         {
@@ -220,7 +217,6 @@ public class LevelsController : MonoBehaviour
     public void EnableLevel_3Distractor()
     {
         bird.SetActive(true);
-        //NetworkManager.InvokeServerMethod("EnableLevel_3DistractorRPC", this.gameObject.name);
     }
     public void EnableLevel_3DistractorRPC()
     {
@@ -268,5 +264,11 @@ public class LevelsController : MonoBehaviour
     public void StartDistractions()
     {
         isReadyForWatering = true;
+    }
+
+    public void StopDistractions()
+    {
+        DisableAllDistractors();
+        isGameOver = true;
     }
 }

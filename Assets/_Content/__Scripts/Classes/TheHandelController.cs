@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
-
 
 public class TheHandelController : MonoBehaviour
 {
@@ -17,15 +15,14 @@ public class TheHandelController : MonoBehaviour
     Outline MyOutLine;
     private void Start()
     {
-        //InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        //NetworkManager.InvokeClientMethod("PlayHandleAnimRPC", invokationManager);
         isHandleDown = false;
         MyOutLine = this.gameObject.GetComponent<Outline>();
         if (!Statistics.instane.isCompleteCourse) {
             MyOutLine.enabled = false;
 
             this.enabled = false;
-    }}
+        }
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -35,9 +32,6 @@ public class TheHandelController : MonoBehaviour
             Debug.Log("Handel Ainem");
             MyOutLine.enabled = false;
             PlayHandleAnimRPC();
-
-            //  if (Statistics.android) NetworkManager.InvokeServerMethod("PlayHandleAnimRPC", this.gameObject.name);           
-
         }
     }
 

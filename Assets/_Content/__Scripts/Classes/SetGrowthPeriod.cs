@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
 
 public class SetGrowthPeriod : MonoBehaviour
 {
@@ -11,15 +10,11 @@ public class SetGrowthPeriod : MonoBehaviour
     private void Start()
     {
         stats = Statistics.instane;
-        //InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        //NetworkManager.InvokeClientMethod("SetFlowerGrowthPeriodRPC", invokationManager);
     }
-
 
     public void SetFlowerGrowthPeriod(int _totalSceneSeconds)
     {
         SetFlowerGrowthPeriodRPC(_totalSceneSeconds);
-       // NetworkManager.InvokeServerMethod("SetFlowerGrowthPeriodRPC", this.gameObject.name, _totalSceneSeconds);
     }
 
     public void SetFlowerGrowthPeriodRPC(int _totalSceneSeconds)

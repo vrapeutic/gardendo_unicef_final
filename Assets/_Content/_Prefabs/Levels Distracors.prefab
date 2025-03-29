@@ -87403,6 +87403,7 @@ GameObject:
   - component: {fileID: 5159365974326460251}
   - component: {fileID: 7049974201987682705}
   - component: {fileID: 2819851911105566266}
+  - component: {fileID: 1221875038267463843}
   m_Layer: 0
   m_Name: Levels Distracors
   m_TagString: Untagged
@@ -87483,6 +87484,35 @@ MonoBehaviour:
       - m_Target: {fileID: 7049974201987682705}
         m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
         m_MethodName: StartDistractions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  invokedOnce: 0
+--- !u!114 &1221875038267463843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7621695919759388129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13946b1496df23341a915936c6955129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 5737b4c701de4204c913a83bc61fa6ec, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7049974201987682705}
+        m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
+        m_MethodName: StopDistractions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

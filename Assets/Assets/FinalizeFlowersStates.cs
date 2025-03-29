@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Tachyon;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class FinalizeFlowersStates : MonoBehaviour
 {
@@ -26,9 +22,6 @@ public class FinalizeFlowersStates : MonoBehaviour
 
     void Start()
     {
-        //InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        //NetworkManager.InvokeClientMethod("FinalizeCurrentStateRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("GameOverRPC", invokationManager);
         animatorTrigger = FindObjectOfType<AnimatorTrigger>();
         tasksAreDone = false;
         currentIndix =0;
@@ -40,7 +33,6 @@ public class FinalizeFlowersStates : MonoBehaviour
     public void FinalizeCurrentState()
     {
         Debug.Log("Finalize Current State");
-        // if (Statistics.android) NetworkManager.InvokeServerMethod("FinalizeCurrentStateRPC", this.gameObject.name);
         FinalizeCurrentStateRPC();
     }
 

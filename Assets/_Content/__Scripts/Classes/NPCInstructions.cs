@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
+
 public class NPCInstructions : MonoBehaviour
 {
 
@@ -13,80 +13,38 @@ public class NPCInstructions : MonoBehaviour
     private void Start()
     {
         flowerIndex = 1;
-       npcAnimator = this.GetComponent<Animator>();
-        //InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        //NetworkManager.InvokeClientMethod("TellThePlayerToHoldTheBucketRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("OnPlayerGrabbTheBucketRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("OnHandleDownRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("ReadyToWaterTheFlowerRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("PlayerPlantedFlowerRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("PlayerPlantedAllFlowersRPC", invokationManager);
+        npcAnimator = this.GetComponent<Animator>();
         stats = Statistics.instane;
         maxFlowerNumber = stats.numberOfFlowers;
     }
     public void TellThePlayerToHoldTheBucket()
     {
         TellThePlayerToHoldTheBucketRPC();
-        //if (Statistics.android)
-        //{
-        //    NetworkManager.InvokeServerMethod("TellThePlayerToHoldTheBucketRPC", this.gameObject.name);
-        //    Debug.Log("tell the player to hold the bucket");
-        //}
-
-        //tell the player to hold the bucket
     }
 
     public void OnPlayerGrabbTheBucket()
     {
         OnPlayerGrabbTheBucketRPC();
-        //if (Statistics.android)
-        //{
-        //    NetworkManager.InvokeServerMethod("OnPlayerGrabbTheBucketRPC", this.gameObject.name);
-        //    Debug.Log("player grabs the bucket");
-        //}
-
     }
 
     public void OnHandleDown()
     {
         OnHandleDownRPC();
-        //if (Statistics.android)
-        //{
-        //    NetworkManager.InvokeServerMethod("OnHandleDownRPC", this.gameObject.name);
-        //    Debug.Log("handle down");
-        //}
-
-
     }
+
     public void ReadyToWaterTheFlower()
     {
         ReadyToWaterTheFlowerRPC();
-        //if (Statistics.android)
-        //{
-        //    NetworkManager.InvokeServerMethod("ReadyToWaterTheFlowerRPC", this.gameObject.name);
-        //    Debug.Log("player ready to water the flower");
-        //}
-
     }
 
     public void PlayerPlanntedFlower()
     {
         PlayerPlantedFlowerRPC();
-        //if (Statistics.android)
-        //{
-        //    NetworkManager.InvokeServerMethod("PlayerPlantedFlowerRPC", this.gameObject.name);
-        //    Debug.Log("player planted flower");
-        //}
     }
 
     public void PlayerPlantedAllFlowers()
     {
         PlayerPlantedAllFlowersRPC();
-        //if (Statistics.android)
-        //{
-        //    NetworkManager.InvokeServerMethod("PlayerPlantedAllFlowersRPC", this.gameObject.name);
-        //    Debug.Log("player planted all flowers");
-        //}
     }
 
     private void SetAnimationClib(int clibInt)
@@ -128,9 +86,6 @@ public class NPCInstructions : MonoBehaviour
             SetAnimationClib(11);// good job you planted a beautiful flower
             flowerIndex++;
         }
-        //if (flowerIndex == (maxFlowerNumber-1))
-        //    PlayerPlantedAllFlowers();
-
     }
 
     IEnumerator TellThePlayerToLookAtTheFlower()

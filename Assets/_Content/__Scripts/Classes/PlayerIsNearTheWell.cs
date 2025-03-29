@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
 
 public class PlayerIsNearTheWell : MonoBehaviour
 {
-    // [SerializeField] Animator HussienAnim;
-
     [SerializeField] GameEvent playerArrivedToTheWellEvent;
 
 
@@ -40,8 +37,6 @@ public class PlayerIsNearTheWell : MonoBehaviour
             //{
             //    playerArrivedToTheWellEvent.Raise();
             //}
-
-
         }
     }
 

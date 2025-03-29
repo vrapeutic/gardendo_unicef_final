@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
 
 public class WelcomingNPCs : MonoBehaviour
 {
@@ -12,10 +11,8 @@ public class WelcomingNPCs : MonoBehaviour
     
     void Start()
     {
-       
-       
         if (!myAnim) myAnim = this.GetComponentInChildren<Animator>();
-       StartCoroutine(WelcomeThePlayerIEnum());
+        StartCoroutine(WelcomeThePlayerIEnum());
     }
 
 
@@ -24,15 +21,10 @@ public class WelcomingNPCs : MonoBehaviour
         yield return new WaitForSeconds(5);
 
         NPCWavingRPC();
-        //  NPCWavingRPC();
-                yield return new WaitForSeconds(9);
+        yield return new WaitForSeconds(9);
 
         finishWelcommingEvent.Raise();
-      
-
     }
-
-    
 
     public void NPCWavingRPC()
     {     

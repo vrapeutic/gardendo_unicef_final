@@ -6,7 +6,6 @@ using UnityEngine;
 public class StartWateringSensorForCamera : MonoBehaviour
 {
     [SerializeField] Flower myFlower;
-    TovaDataSet dataSet;
     public bool isPlayerLooking;
     public static int interruptionThreshold = 0;
 
@@ -14,13 +13,8 @@ public class StartWateringSensorForCamera : MonoBehaviour
     private float interruptionCounter;
     private bool isInterrupted;
 
-    //public static event Action<int> OnEyeEnter = delegate { };
-    // public static event Action<int> OnEyeExit = delegate { };
-    Statistics stats;
     private void Start()
     {
-        stats = Statistics.instane;
-        dataSet = TovaDataGet.ReturnTovaData();
         if (!myFlower) myFlower = this.GetComponentInParent<Flower>();
     }
     private void Update()
@@ -31,11 +25,8 @@ public class StartWateringSensorForCamera : MonoBehaviour
             if (interruptionCounter >= 3)
             {
                 interruptionThreshold++;
-                //  Debug.Log("TaR : Interruption Threshold : " + interruptionThreshold);
-                OnExceedInerruptionThreshold();
                 isInterrupted = false;
             }
-            // if (interruptionCounter % 1 < 0.02) Debug.Log("Interruption Counter: " + interruptionCounter);
         }
 
     }
@@ -60,7 +51,6 @@ public class StartWateringSensorForCamera : MonoBehaviour
             isInterrupted = true;
             isPlayerLooking = false;
             myFlower.UpdateLookingState(false);
-            // OnEyeExit(1);                                                   
         }
     }
 
@@ -72,16 +62,4 @@ public class StartWateringSensorForCamera : MonoBehaviour
         interruptionCounter = 0;
         // Debug.Log("Reset interruption count = " + interruptionThreshold);
     }
-
-    public void OnExceedInerruptionThreshold()
-    {
-        //if (interruptionThreshold == 3)
-        //{
-        //    stats.tasksWithLimitiedInterruptions++;
-        //    dataSet.SetHitsCounterEnabled(true);
-        //}
-        //Debug.Log("TaR : Task with limited interruption : " + stats.tasksWithLimitiedInterruptions);
-    }
-
-
 }

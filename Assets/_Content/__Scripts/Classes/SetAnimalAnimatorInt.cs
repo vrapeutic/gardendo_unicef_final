@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
 
 public class SetAnimalAnimatorInt : MonoBehaviour
 {
@@ -12,17 +11,6 @@ public class SetAnimalAnimatorInt : MonoBehaviour
     public bool canFill;
     private void Start()
     {
-        try
-        {
-            InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-            //NetworkManager.InvokeClientMethod("StartDistractionRPC", invokationManager);
-            //NetworkManager.InvokeClientMethod("StopDistractionRPC", invokationManager);
-
-        }
-        catch
-        {
-            Debug.Log("set animal int init error");
-        }
         //if( !myAnimalBehaviour ) myAnimalBehaviour = GetComponentInChildren<AnimalBehaviourControl>();
 
         isAnimalDistracting = false;
@@ -41,7 +29,6 @@ public class SetAnimalAnimatorInt : MonoBehaviour
             myAnimalBehaviour.ActivateCollider();
             canFill = true;
             isAnimalDistracting = true;
-            //NetworkManager.InvokeServerMethod("StartDistractionRPC", this.gameObject.name);
         }
 
 
@@ -57,7 +44,6 @@ public class SetAnimalAnimatorInt : MonoBehaviour
         Debug.Log("Stop distraction");
         isAnimalDistracting = false;
         canFill = false;
-        //NetworkManager.InvokeServerMethod("StopDistractionRPC", this.gameObject.name);
     }
     public void StopDistractionRPC()
     {
@@ -71,6 +57,5 @@ public class SetAnimalAnimatorInt : MonoBehaviour
     //    isAnimalDistracting = true;
     //    canFill = true;
     //    Debug.Log("distract coroutine");
-    //    NetworkManager.InvokeServerMethod("DistractRPC", this.gameObject.name);
     //}
 }

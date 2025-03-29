@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
+
 public class NPCGoesToWell : MonoBehaviour
 {
     [SerializeField]
@@ -16,11 +16,6 @@ public class NPCGoesToWell : MonoBehaviour
     {
         if (!npcAnimator) npcAnimator = this.GetComponent<Animator>();
         if (!npcChildAnimator) npcChildAnimator = this.GetComponentInChildren<Animator>();
-        //InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        //NetworkManager.InvokeClientMethod("NPCMovesToTheWellRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("NPCArrivedToTheWellRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("GetNPCBackToHisPositionRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("NPC_ArrivedToOriginalPositionRPC", invokationManager);
     }
     public void NPCMovesToTheWell()
     {
@@ -28,20 +23,14 @@ public class NPCGoesToWell : MonoBehaviour
         {
             Debug.Log("npc moves to the well ");
             NPCMovesToTheWellRPC();
-          //NetworkManager.InvokeServerMethod("NPCMovesToTheWellRPC", this.gameObject.name);
         }
        
     }
 
     public void NPCArrivedToTheWell()
     {
-        //if(Statistics.android)
-        //{
         Debug.Log("npc arrived to the well");
         NPCArrivedToTheWellRPC();
-            //NetworkManager.InvokeServerMethod("NPCArrivedToTheWellRPC", this.gameObject.name);
-        //}
-        
     }
 
     public void GetNPCBackToHisPosition()
@@ -50,7 +39,6 @@ public class NPCGoesToWell : MonoBehaviour
         {
             Debug.Log("get npc back to his position");
             GetNPCBackToHisPositionRPC();
-           // NetworkManager.InvokeServerMethod("GetNPCBackToHisPositionRPC", this.gameObject.name);
         }
        
     }
@@ -60,7 +48,6 @@ public class NPCGoesToWell : MonoBehaviour
         {
             Debug.Log("npc arrived to original position");
             NPC_ArrivedToOriginalPositionRPC();
-           // NetworkManager.InvokeServerMethod("NPC_ArrivedToOriginalPositionRPC", this.gameObject.name);
         }
        
     }

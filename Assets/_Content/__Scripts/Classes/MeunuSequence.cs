@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
+
 public class MeunuSequence : MonoBehaviour
 {
     [SerializeField] GameObject[] panels;
@@ -9,7 +9,6 @@ public class MeunuSequence : MonoBehaviour
 
     private void Start()
     {
-
         if (!Statistics.instane.firstEnterMainMenu)
         currentUIIndex =0;
         else currentUIIndex = -1;

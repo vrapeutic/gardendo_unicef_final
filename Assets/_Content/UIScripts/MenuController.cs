@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Tachyon;
 
 public class MenuController : MonoBehaviour
 {
@@ -12,15 +11,6 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         stats = Statistics.instane;
-        //InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        //NetworkManager.InvokeClientMethod("LoadSceneRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("setLevelRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("LoadMainMenuRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("ChooseCharacterRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("SetCompleteCourseRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("SetWateringCycleRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("SetEnviromentRPC", invokationManager);
-        //NetworkManager.InvokeClientMethod("ExitModuleRPC", invokationManager);
         stats.currentFlowerIndex = 0;
     }
 
@@ -70,13 +60,11 @@ public class MenuController : MonoBehaviour
     public void LoadScene()
     {
         LoadSceneRPC();
-       // NetworkManager.InvokeServerMethod("LoadSceneRPC", this.gameObject.name);
     }
     public void SetCompleteCourse(bool isCompleteCourse)
     {
         SetCompleteCourseRPC(isCompleteCourse);
         Debug.Log("set course ");
-       // NetworkManager.InvokeServerMethod("SetCompleteCourseRPC", this.gameObject.name, isCompleteCourse);
     }
     public void SetCompleteCourseRPC(bool isCompleteCourse)
     {
@@ -88,7 +76,6 @@ public class MenuController : MonoBehaviour
     {
         //
         SetEnviromentRPC(isGarden);
-       // NetworkManager.InvokeServerMethod("SetEnviromentRPC", this.gameObject.name, isGarden);
     }
     public void SetEnviromentRPC(bool isGarden)
     {
@@ -101,7 +88,6 @@ public class MenuController : MonoBehaviour
     {
         Debug.Log("set level ");
         stats.instructionNumber = level;
-        // NetworkManager.InvokeServerMethod("setLevelRPC", this.gameObject.name, level);
        setLevelRPC(level);
     }
     public void setLevelRPC(int level)
@@ -113,7 +99,6 @@ public class MenuController : MonoBehaviour
     public void SetWateringCycle(int wateringCycle)
     {
         SetWateringCycleRPC(wateringCycle);
-       // NetworkManager.InvokeServerMethod("SetWateringCycleRPC", this.gameObject.name, wateringCycle);
     }
     public void SetWateringCycleRPC(int wateringCycle)
     {
@@ -130,7 +115,6 @@ public class MenuController : MonoBehaviour
     public void ChooseCharacter(int characterNo)
     {
         ChooseCharacterRPC(characterNo);
-       // NetworkManager.InvokeServerMethod("ChooseCharacterRPC", this.gameObject.name, characterNo);
     }
     public void ChooseCharacterRPC(int characterNo)
     {
@@ -155,32 +139,20 @@ public class MenuController : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        //
-        //StatisticsManager.instance.OnSendStatistics();
-        //NetworkManager.InvokeServerMethod("LoadMainMenuRPC", this.gameObject.name);
         Invoke("LoadMainMenuRPC", 4f);
     }
 
     public void LoadMainMenuRPC()
     {
-        //FindObjectOfType<BackendSession>().StartSession();
-        //CSVWriter.Instance.WriteEndTime();
         CSVWriter.Instance.WriteCSV();
         SceneManager.LoadScene("Main Menu");
-        Destroy(FindObjectOfType<TovaDataGet>().gameObject);
     }
 
 
     public void ExitModule()
     {
         Debug.Log("Exit Module");
-        //ServerRequest.instance.SendPutRequest();
-
-        //StatisticsManager.instance.OnSendStatistics();
         Invoke("ExitModuleRPC", 0f);
-        /*if (!Statistics.android)*/
-        //NetworkManager.InvokeServerMethod("ExitModuleRPC", this.gameObject.name);
-        // 
     }
 
     public void ExitModuleRPC()
@@ -195,21 +167,9 @@ public class MenuController : MonoBehaviour
     public void bye()
     {
         Debug.Log("Exit Module RPC");
-        //StartCoroutine(ExitEnum());     
-        //if (Statistics.android)
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
     }
-
-    //IEnumerator ExitEnum()
-    //{
-    //    //if (Statistics.android)
-    //    //    JsonPreparation.instance.PutRequest();
-    //    NetworkManager.instance.DisconnectToServer();
-    //    yield return new WaitForSeconds(1);
-    //    if (Statistics.android) SceneManager.LoadScene("Lobby");
-    //    else Application.Quit();
-    //}
 }

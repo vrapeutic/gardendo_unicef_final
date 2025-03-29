@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Tachyon;
 
 public class FillTheBucketAnimation : MonoBehaviour
 {
@@ -19,7 +18,6 @@ public class FillTheBucketAnimation : MonoBehaviour
     private bool isPlayerLooking = false;
     private bool isFilling = false;
     [SerializeField] Animator waterAnim;
-    // [SerializeField] ParticleSystem waterParticles;
     [SerializeField] AudioSource fillingTheBucketSFX;
 
     Statistics stats;
@@ -29,9 +27,6 @@ public class FillTheBucketAnimation : MonoBehaviour
         stats = Statistics.instane;
         if (stats.isCompleteCourse)
         {
-            //InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-            //NetworkManager.InvokeClientMethod("PlayingWaterProcessRPC", invokationManager);
-            //NetworkManager.InvokeClientMethod("StoppingWaterProcessRPC", invokationManager);
             waterAnim.enabled = false;
             FillingTheBucketRoutine = StartCoroutine(FillingTheBucket());
         }
@@ -59,7 +54,6 @@ public class FillTheBucketAnimation : MonoBehaviour
                 if (Statistics.android && !isFilling)
                 {
                     PlayingWaterProcessRPC();
-                    //NetworkManager.InvokeServerMethod("PlayingWaterProcessRPC", this.gameObject.name);
                     PlayingWaterProcessAndoid();
                     isFilling = true;
                 }
@@ -69,7 +63,6 @@ public class FillTheBucketAnimation : MonoBehaviour
                 if (Statistics.android && isFilling)
                 {
                     StoppingWaterProcessRPC();
-                  //  NetworkManager.InvokeServerMethod("StoppingWaterProcessRPC", this.gameObject.name);
                     StoppingWaterProcessAndroid();
                     isFilling = false;
                 }
@@ -80,20 +73,14 @@ public class FillTheBucketAnimation : MonoBehaviour
 
     public void StoppingWaterProcessRPC()
     {
-        //if (!Statistics.android)
-        //{
             if (!startPlayingSFX)
             {
                 sfxIsPlayed = true;
                 fillingTheBucketSFX.Pause();
             }
-
-            // waterParticles.enableEmission = false;
             startFillingTimer = false;
             waterAnim.SetFloat("speed", 0.0f);
         taskStopped.Raise();
-        //}
-
     }
 
     public void StoppingWaterProcessAndroid()
@@ -103,16 +90,12 @@ public class FillTheBucketAnimation : MonoBehaviour
             sfxIsPlayed = true;
             fillingTheBucketSFX.Pause();
         }
-
-        // waterParticles.enableEmission = false;
         startFillingTimer = false;
         waterAnim.SetFloat("speed", 0.0f);
     }
 
     public void PlayingWaterProcessRPC()
     {
-       // if (!Statistics.android)
-        //{
             if (sfxIsPlayed == false)
             {
                 fillingTheBucketSFX.Play();
@@ -128,7 +111,6 @@ public class FillTheBucketAnimation : MonoBehaviour
             waterAnim.enabled = true;
             waterAnim.SetFloat("speed", 1.0f);
         taskStarted.Raise();
-      //  }
 
     }
 

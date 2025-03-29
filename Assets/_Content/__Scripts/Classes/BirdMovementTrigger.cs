@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tachyon;
 
 public class BirdMovementTrigger : MonoBehaviour
 {
@@ -11,8 +10,6 @@ public class BirdMovementTrigger : MonoBehaviour
     Statistics stats;
     private void Start()
     {
-        InvokationManager invokationManager = new InvokationManager(this, this.gameObject.name);
-        //NetworkManager.InvokeClientMethod("FlyingBirdAnimRPC", invokationManager);
         stats = Statistics.instane;
     }
 
@@ -38,7 +35,7 @@ public class BirdMovementTrigger : MonoBehaviour
 
     private void FlyingBirdAnim()
     {
-        if (Statistics.android)  FlyingBirdAnimRPC();// NetworkManager.InvokeServerMethod("FlyingBirdAnimRPC", this.gameObject.name); }
+        if (Statistics.android)  FlyingBirdAnimRPC();
     }
 
     public void FlyingBirdAnimRPC()
